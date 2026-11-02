@@ -1,0 +1,47 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environment ────────────────────────────────────────────────────────
+venv/
+env/
+.venv/
+
+# ── Streamlit cache ────────────────────────────────────────────────────────────
+.streamlit/
+
+# ── Pytest ────────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Model weights (large binary — too big for GitHub, share separately) ────────
+models/*.pth
+
+# ── Dataset images (large — not pushed) ───────────────────────────────────────
+dataset/NEU-DET/
+dataset/MetalVision_Normal_KSDD2/
+
+# ── Captured inspection frames ────────────────────────────────────────────────
+data/captures/
+
+# ── Agent / workflow artifacts ────────────────────────────────────────────────
+.agents/
+.kiro/
+
+# ── OS / IDE ──────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# ── Logs & temp ───────────────────────────────────────────────────────────────
+*.log
+*.tmp
+_*.py

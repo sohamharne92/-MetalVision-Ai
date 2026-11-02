@@ -1,0 +1,12 @@
+streamlit==1.35.0
+numpy==1.26.4
+plotly==5.22.0
+pandas==2.2.2
+Pillow==10.3.0
+pyserial==3.5
+reportlab==5.1.0
+opencv-python==4.10.0.84
+reportlab==4.2.2
+scipy==1.13.1
+torch==2.10.0
+torchvision==0.25.0

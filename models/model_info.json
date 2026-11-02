@@ -1,0 +1,65 @@
+{
+  "model_name": "DualChannelCNN",
+  "class_names": [
+    "Normal",
+    "Crack",
+    "Dent",
+    "Scratch"
+  ],
+  "num_classes": 4,
+  "input_size": 200,
+  "best_val_acc": 0.9222,
+  "test_acc": 0.937,
+  "val_loss": 0.2037,
+  "test_loss": 0.1585,
+  "class_metrics": {
+    "Crack": {
+      "precision": 0.974,
+      "recall": 0.8333,
+      "f1": 0.8982
+    },
+    "Dent": {
+      "precision": 0.8725,
+      "recall": 0.9889,
+      "f1": 0.9271
+    },
+    "Scratch": {
+      "precision": 0.978,
+      "recall": 0.9889,
+      "f1": 0.9834
+    }
+  },
+  "confusion_matrix": [
+    [
+      75,
+      13,
+      2
+    ],
+    [
+      1,
+      89,
+      0
+    ],
+    [
+      1,
+      0,
+      89
+    ]
+  ],
+  "macro_precision": 0.9415,
+  "macro_recall": 0.937,
+  "macro_f1": 0.9362,
+  "inference_ms": 38.55,
+  "parameters": 3098947,
+  "trained_on": "2026-09-26",
+  "dataset": "NEU-DET (Crack/Dent/Scratch) + KSDD2 (Normal) \u2014 4 classes, 2788 images",
+  "config": {
+    "epochs": 50,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "dropout": 0.5
+  },
+  "device": "cpu",
+  "status": "trained"
+}

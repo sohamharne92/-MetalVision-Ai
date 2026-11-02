@@ -1,0 +1,11 @@
+inspection_id,timestamp,part_id,scenario,decision,confidence,defects_found,defect_types,positions_inspected,defect_positions,notes
+2f153fb3,2026-08-21T01:03:23.240337,PART-2F153FB3,Scenario 1: Normal Product,ACCEPT,0.9638,0,[],12,[],
+32a08bc2,2026-08-21T01:04:14.994684,PART-32A08BC2,Scenario 1: Normal Product,ACCEPT,0.9565,0,[],12,[],
+61235447,2026-08-21T14:53:46.826024,PART-61235447,Scenario 1: Normal Product,ACCEPT,0.9526,0,[],12,[],
+76eb09fa,2026-08-21T14:56:08.686849,PART-76EB09FA,Scenario 1: Normal Product,ACCEPT,0.9537,0,[],12,[],
+04304c7f,2026-08-22T13:34:43.575707,PART-04304C7F,Scenario 1: Normal Product,ACCEPT,0.9446,0,[],12,[],
+B1D95835,2026-09-26T00:33:54.400865,AUTO-B1D95835,Scenario 1: Normal Component,ACCEPT,0.9579,0,[],12,[],Quality issues: 8 | Frames: data/captures/B1D95835/
+2A055A48,2026-09-26T01:17:59.862962,AUTO-2A055A48,Scenario 1: Normal Component,ACCEPT,0.9549,0,[],12,[],Quality issues: 3 | Frames: data/captures/2A055A48/
+83085796,2026-09-26T02:41:31.622900,AUTO-83085796,Scenario 1: Normal Component,ACCEPT,0.9602,0,[],12,[],Quality issues: 0 | Frames: data/captures/83085796/
+FB7A0A4A,2026-10-30T01:03:12.406642,AUTO-FB7A0A4A,Scenario 1: Normal Component,REJECT,0.7799,12,"[""Dent"", ""Scratch""]",12,"[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330]",Quality issues: 0 | Frames: data/captures/FB7A0A4A/
+364C3AA6,2026-11-02T00:42:25.322955,AUTO-364C3AA6,Scenario 1: Normal Component,ACCEPT,0.955,0,[],12,[],Quality issues: 0 | Frames: data/captures/364C3AA6/

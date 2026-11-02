@@ -1,0 +1,114 @@
+================================================================================
+METALVISION AI — QUICK START
+AI-Based 360° Automated Metal Forming Defect Detection System Using Dual-Channel CNN
+================================================================================
+
+WHAT IT IS
+--------------------------------------------------------------------------------
+A Streamlit dashboard that inspects a cylindrical metal part from 12 angular
+positions (every 30°, full 360°), classifies each surface image with a trained
+dual-channel CNN (grayscale + Sobel edge), and gives an ACCEPT / REJECT / REVIEW
+verdict.
+
+Status:
+  - CNN classifier ............ Trained, 93.70% test accuracy (3 classes)
+  - OpenCV camera capture ..... Live (USB / built-in webcam)
+  - Platform rotation ......... MANUAL (STM32 motor control not yet integrated)
+
+For educational / prototype purposes only.
+
+
+REQUIREMENTS
+--------------------------------------------------------------------------------
+- Python 3.10+
+- A webcam (optional — simulation mode works without a camera)
+
+
+INSTALL
+--------------------------------------------------------------------------------
+1. Open a terminal in the project folder.
+
+2. Create and activate a virtual environment:
+   python -m venv venv
+   venv\Scripts\activate          (Windows)
+   source venv/bin/activate       (macOS / Linux)
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+   This installs Streamlit, PyTorch (torch / torchvision), OpenCV
+   (opencv-python), Plotly, Pandas, NumPy, Pillow, reportlab, and scipy.
+
+
+RUN
+--------------------------------------------------------------------------------
+- Windows:  double-click run.bat
+  - or run:  streamlit run app.py
+
+The app opens in your browser at http://localhost:8501
+
+
+THE 11 PAGES
+--------------------------------------------------------------------------------
+ 1. Overview              KPI cards from inspection history
+ 2. Live 360° Inspection  core workflow: capture 12 views -> classify -> verdict
+ 3. Inspection History    table + filters
+ 4. Analytics             charts over history
+ 5. Digital Reports       report export (PDF / TXT)
+ 6. System Architecture   diagrams + motor math
+ 7. Quality Control       image-quality thresholds + control charts
+ 8. Predictions           linear-regression forecast / anomaly detection
+ 9. Maintenance           component health + maintenance log
+10. Admin Panel           admin tools
+11. Camera Test           OpenCV camera probe + dual-channel preview
+
+
+USING THE LIVE INSPECTION (page 2)
+--------------------------------------------------------------------------------
+1. Enter a Component Part ID.
+2. Select a demo Scenario (Normal Component / Scratch at 90° / Crack at 180° /
+   Multiple Defects / Random Test).
+3. Pick a camera index and resolution.
+4. Press START INSPECTION.
+   - Phase 1: captures one frame per position from the webcam, saving JPEGs to
+     data/captures/<inspection_id>/.
+   - Phase 2: classifies each frame with the real CNN (if weights are loaded),
+     otherwise falls back to simulation. Shows the 360° ring, defect list, and
+     the ACCEPT / REJECT / REVIEW verdict.
+   - Rotate the component manually between captures (motor control is not
+     integrated yet).
+5. Press SAVE TO HISTORY to append a row to data/inspection_history.csv.
+
+
+THE CNN MODEL
+--------------------------------------------------------------------------------
+- Dual-Channel CNN: two branches (grayscale + Sobel edge map) fused together.
+- Trained on NEU Metal Surface Defects (NEU-DET), 3 classes: Crack, Dent, Scratch.
+- 420 / 90 / 90 images per class (train / val / test), ~3.1M parameters.
+- Test accuracy 93.70%, ~38.6 ms / image on CPU.
+- Whole-image classification only (no bounding boxes / segmentation).
+- NEU-DET has no defect-free images -> no Normal class in the real model;
+  the all-Normal -> ACCEPT path exists only in simulation mode.
+
+Weights:  models/dual_channel_cnn.pth
+Metadata: models/model_info.json   (class names, accuracy, config)
+
+Retrain (optional):
+   python dataset/prepare_dataset.py
+   python cnn/train.py            (auto-detects available classes)
+
+
+TROUBLESHOOTING
+--------------------------------------------------------------------------------
+- "No module named 'streamlit' / 'torch' / 'cv2'":
+    activate the venv and run  pip install -r requirements.txt
+- "Cannot open camera 0":
+    check the camera is connected and not in use by another app; try another
+    camera index on the Live Inspection page.
+- Port 8501 in use:
+    streamlit run app.py --server.port 8502
+
+
+STOP THE APP
+--------------------------------------------------------------------------------
+Press Ctrl+C in the terminal running Streamlit.
